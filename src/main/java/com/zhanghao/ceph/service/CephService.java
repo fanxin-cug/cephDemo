@@ -268,9 +268,7 @@ public class CephService {
     }
 
     public Boolean downloadFileByPath(String fileName, String savePath) {
-
         this.mountCephFsByRoot();
-
         // exit with null if not mount
         if (this.mount == null) {
             logger.info("Ceph fs not mount!");
@@ -397,5 +395,4 @@ public class CephService {
         }
         return false;
     }
-
 }
