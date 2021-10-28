@@ -43,10 +43,13 @@ public class CephService {
         return false;
     }
 
+    protected void finalize( )
+    {
+        this.unmountCephFs();
+    }
+
     public String[] createDirByPath(String path){
-
         this.mountCephFsByRoot();
-
         String[] dirList = null;
         try {
             if (this.mount == null){
@@ -63,9 +66,7 @@ public class CephService {
 
 
     public String[] deleteDirByPath(String path){
-
         this.mountCephFsByRoot();
-
         String[] dirList = null;
         try {
             if (this.mount == null){
@@ -82,9 +83,7 @@ public class CephService {
 
 
     public CephStat getFileStatusByPath(String path){
-
         this.mountCephFsByRoot();
-
         CephStat stat = new CephStat();
         try {
             if (this.mount == null){
@@ -99,9 +98,7 @@ public class CephService {
     }
 
     public String readFileByPath(String path){
-
         this.mountCephFsByRoot();
-
         CephStat stat = new CephStat();
         String context=null;
         try {
@@ -122,9 +119,7 @@ public class CephService {
     }
 
     public Boolean uploadFileByPath(String filePath, String fileName){
-
         this.mountCephFsByRoot();
-
         // exit with null if not mount
         if (this.mount == null){
             logger.info("Ceph fs not mount!");
