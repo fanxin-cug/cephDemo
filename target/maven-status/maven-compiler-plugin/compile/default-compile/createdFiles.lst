@@ -1,4 +1,0 @@
-com\zhanghao\ceph\Application.class
-com\zhanghao\ceph\config\SwaggerConfig.class
-com\zhanghao\ceph\service\CephService.class
-com\zhanghao\ceph\controller\CephController.class
