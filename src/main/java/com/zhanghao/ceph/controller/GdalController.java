@@ -36,7 +36,7 @@ public class GdalController {
         gdal.AllRegister();
         File tifFile = new File(fileName);
         Dataset dataset = gdal.Open(tifFile.toString(), gdalconstConstants.GA_ReadOnly);
-        if (null != dataset) {
+        if (null == dataset) {
             return "读取失败";
         } else {
             System.out.println(dataset.GetGeoTransform());
