@@ -33,12 +33,12 @@ public class CephService {
     }
 
     public CephService(){
-        mountCephFsByRoot();
+        this.mountCephFsByRoot();
     }
 
     public Boolean unmountCephFs(){
         try {
-            mount.unmount();
+            this.mount.unmount();
             return true;
         }catch (Exception e){
             e.printStackTrace();
