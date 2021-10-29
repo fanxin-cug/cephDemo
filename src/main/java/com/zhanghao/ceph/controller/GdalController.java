@@ -49,13 +49,12 @@ public class GdalController {
     @RequestMapping(value = "/gdalTest2", method = RequestMethod.GET)
     @ResponseBody
     public String gdalTest2(String fileName) {
-        String newFileName = fileName.substring(0, fileName.lastIndexOf(".")) + "_new." + fileName.substring(fileName.lastIndexOf("."));
+        String newFileName = fileName.substring(0, fileName.lastIndexOf(".")) + "_new" + fileName.substring(fileName.lastIndexOf("."));
         Date startDate = new Date();
         //读文件
         MemImage memImage = MemImageHelper.readToMemImage(fileName);
         MemImageHelper.writeToDisk(memImage, newFileName);
         return "用时:" + (new Date().getTime() - startDate.getTime()) + " ms";
     }
-
 
 }
