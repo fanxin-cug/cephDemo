@@ -130,7 +130,9 @@ public class MemImageHelper {
         Dataset dataset = GdalIOUtil.preSetImage(fileName, GdalIOUtil.GTiff, memImage.getnWidth(), memImage.getnHeight(), memImage.getnBand(), memImage.getDataType());
         writeToDisk(memImage, dataset);
         if (memImage.getUtilImageInfo() != null) {
-            dataset.SetProjection(memImage.getUtilImageInfo().getProj());
+            if(null != memImage.getUtilImageInfo().getProj()){
+                dataset.SetProjection(memImage.getUtilImageInfo().getProj());
+            }
             dataset.SetGeoTransform(memImage.getUtilImageInfo().getImgTransform());
         }
         dataset.delete();
